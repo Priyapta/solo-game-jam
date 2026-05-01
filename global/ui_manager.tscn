@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://dma8dymbrah0v"]
+
+[ext_resource type="Script" uid="uid://crn26ayj7lw5g" path="res://global/ui_manager.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://colx7pykpqqal" path="res://assets/fonts/BreatheFireV-R9EvE.ttf" id="2_font"]
+[ext_resource type="Texture2D" uid="uid://d4bsdb718ryf" path="res://assets/Tiny Swords (Free Pack)/Terrain/Resources/Gold/Gold Resource/Gold_Resource.png" id="3_gold"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxHealth"]
+bg_color = Color(0.2, 0.8, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxTownHealth"]
+bg_color = Color(0.2, 0.5, 0.9, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="UIManager" type="CanvasLayer" unique_id=1214282448]
+layer = 100
+script = ExtResource("1_script")
+
+[node name="Control" type="Control" parent="." unique_id=2022296614]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlayerHealthContainer" type="VBoxContainer" parent="Control" unique_id=401391966]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -253.0
+offset_right = 330.0
+offset_bottom = -174.0
+grow_vertical = 0
+theme_override_constants/separation = 5
+
+[node name="PlayerLabel" type="Label" parent="Control/PlayerHealthContainer" unique_id=314394917]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "Player"
+
+[node name="PlayerHealthLabel" type="Label" parent="Control/PlayerHealthContainer" unique_id=527861445]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
+text = "100 / 100"
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="Control/PlayerHealthContainer" unique_id=773538814]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 25)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxHealth")
+value = 100.0
+
+[node name="TownHealthContainer" type="VBoxContainer" parent="Control" unique_id=1878609646]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -173.0
+offset_right = 330.0
+offset_bottom = -94.0
+grow_vertical = 0
+theme_override_constants/separation = 5
+
+[node name="TownLabel" type="Label" parent="Control/TownHealthContainer" unique_id=1845634668]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.5, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+text = "Town"
+
+[node name="TownHealthLabel" type="Label" parent="Control/TownHealthContainer" unique_id=149302644]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
+text = "1000 / 1000"
+
+[node name="TownHealthBar" type="ProgressBar" parent="Control/TownHealthContainer" unique_id=1834096000]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 25)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxTownHealth")
+max_value = 1000.0
+value = 1000.0
+
+[node name="GoldContainer" type="HBoxContainer" parent="Control" unique_id=1923518406]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = 70.0
+grow_horizontal = 0
+theme_override_constants/separation = 10
+
+[node name="GoldIcon" type="TextureRect" parent="Control/GoldContainer" unique_id=1677883081]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_gold")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="GoldLabel" type="Label" parent="Control/GoldContainer" unique_id=980095707]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "0"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/GoldContainer" unique_id=1177264436]
+layout_mode = 2

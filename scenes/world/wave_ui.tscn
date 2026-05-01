@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b822n103j2klo"]
+
+[ext_resource type="Script" uid="uid://brv27odhli6xd" path="res://scenes/world/wave_ui.gd" id="1_script"]
+
+[node name="WaveUI" type="CanvasLayer" unique_id=133201150]
+script = ExtResource("1_script")
+
+[node name="Control" type="Control" parent="." unique_id=359743115]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WaveLabel" type="Label" parent="Control" unique_id=285394498]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -50.0
+offset_right = 200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(200, 50)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 64
+text = "DAY 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HUD" type="Control" parent="Control" unique_id=469523437]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/HUD" unique_id=1872074228]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 120.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HUD/MarginContainer" unique_id=825941583]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="DayLabel" type="Label" parent="Control/HUD/MarginContainer/VBoxContainer" unique_id=8644216]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 42
+text = "DAY 1"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1858385848]

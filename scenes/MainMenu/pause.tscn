@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://di87n8ehh4nuw"]
+
+[ext_resource type="Script" uid="uid://b0awmmrajvqew" path="res://scenes/MainMenu/pause_menu.gd" id="1_8bxso"]
+[ext_resource type="Texture2D" uid="uid://cyeonukxayo1x" path="res://assets/ui/main_Menu/Button_Blue_3Slides.png" id="2_rsw7d"]
+[ext_resource type="Texture2D" uid="uid://7qr5a2c32qnj" path="res://assets/ui/main_Menu/Button_Blue_3Slides_Pressed.png" id="3_xie30"]
+[ext_resource type="FontFile" uid="uid://colx7pykpqqal" path="res://assets/fonts/BreatheFireV-R9EvE.ttf" id="4_3oor5"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1225232175]
+layer = 100
+script = ExtResource("1_8bxso")
+
+[node name="Control" type="Control" parent="." unique_id=999999999]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Control" unique_id=111111111]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=578760023]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -146.0
+offset_right = 96.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeGame" type="TextureButton" parent="Control/VBoxContainer" unique_id=814824104]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+texture_normal = ExtResource("2_rsw7d")
+texture_pressed = ExtResource("3_xie30")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/ResumeGame" unique_id=1356302856]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.063
+anchor_top = 0.086
+anchor_right = 0.924
+anchor_bottom = 0.573
+offset_left = 76.65
+offset_top = 26.099998
+offset_right = -59.80002
+offset_bottom = 1.0499954
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.80784315)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("4_3oor5")
+theme_override_font_sizes/font_size = 40
+text = "Resume"
+horizontal_alignment = 1
+
+[node name="RestartGame" type="TextureButton" parent="Control/VBoxContainer" unique_id=2078616009]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+texture_normal = ExtResource("2_rsw7d")
+texture_pressed = ExtResource("3_xie30")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/RestartGame" unique_id=529874088]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.087000005
+anchor_top = 0.171
+anchor_right = 0.89100003
+anchor_bottom = 0.632
+offset_left = 96.85
+offset_top = 11.349998
+offset_right = -74.95001
+offset_bottom = -14.800003
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.80784315)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("4_3oor5")
+theme_override_font_sizes/font_size = 40
+text = "RESTART"
+horizontal_alignment = 1
+
+[node name="Exit" type="TextureButton" parent="Control/VBoxContainer" unique_id=679965621]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+texture_normal = ExtResource("2_rsw7d")
+texture_pressed = ExtResource("3_xie30")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Exit" unique_id=939817707]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -36.0
+offset_right = 57.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.80784315)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("4_3oor5")
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Control/VBoxContainer/ResumeGame" to="." method="_on_resume_game_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/RestartGame" to="." method="_on_restart_game_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

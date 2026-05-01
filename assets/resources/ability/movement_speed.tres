@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://d2mui5ftn1uqm"]
+
+[ext_resource type="Script" uid="uid://6rg26h0g3mg8" path="res://scripts/item_data.gd" id="1_mq70l"]
+[ext_resource type="Texture2D" uid="uid://b5tja6p7xd2oh" path="res://assets/sprites/movement.png" id="2_ppyg4"]
+
+[resource]
+script = ExtResource("1_mq70l")
+name = "Movement Speed"
+description = "Meningkatkan kecepatan movement pada player"
+texture = ExtResource("2_ppyg4")
+metadata/_custom_type_script = "uid://6rg26h0g3mg8"

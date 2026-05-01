@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dmfg6s0s42ray"]
+
+[ext_resource type="Texture2D" uid="uid://6im15vigvpky" path="res://assets/sprites/Thunderstrike wo blur.png" id="1_tq6yq"]
+[ext_resource type="Script" uid="uid://cg52fa10quupe" path="res://scenes/effects/thunder_effect.gd" id="2_hmhxo"]
+[ext_resource type="AudioStream" uid="uid://tnjcqxhtjp2u" path="res://assets/audio/dragon-studio-electric-discharge-386160.mp3" id="3_hmhxo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjnj7"]
+atlas = ExtResource("1_tq6yq")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2svtd"]
+atlas = ExtResource("1_tq6yq")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nt71"]
+atlas = ExtResource("1_tq6yq")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w73d5"]
+atlas = ExtResource("1_tq6yq")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h28r8"]
+atlas = ExtResource("1_tq6yq")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kc3a"]
+atlas = ExtResource("1_tq6yq")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5w6d"]
+atlas = ExtResource("1_tq6yq")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0doxi"]
+atlas = ExtResource("1_tq6yq")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cw2cu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjnj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2svtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nt71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w73d5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h28r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kc3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5w6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0doxi")
+}],
+"loop": true,
+"name": &"strike",
+"speed": 8.0
+}]
+
+[node name="ThunderEffect" type="AnimatedSprite2D" unique_id=848154861]
+scale = Vector2(1.359375, 1.421875)
+sprite_frames = SubResource("SpriteFrames_cw2cu")
+animation = &"strike"
+frame_progress = 0.63270193
+script = ExtResource("2_hmhxo")
+
+[node name="thunderSound" type="AudioStreamPlayer2D" parent="." unique_id=884436015]
+stream = ExtResource("3_hmhxo")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

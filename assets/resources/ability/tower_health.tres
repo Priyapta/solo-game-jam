@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://d2kp4d36xhrdp"]
+
+[ext_resource type="Script" uid="uid://6rg26h0g3mg8" path="res://scripts/item_data.gd" id="1_755ta"]
+[ext_resource type="Texture2D" uid="uid://b3k4gsh6yd2ts" path="res://assets/sprites/kereta.png" id="2_sgrn2"]
+
+[resource]
+script = ExtResource("1_755ta")
+name = "Town HP"
+description = "Memperbaiki tower menjadi 100%"
+texture = ExtResource("2_sgrn2")
+metadata/_custom_type_script = "uid://6rg26h0g3mg8"

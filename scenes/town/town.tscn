@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://pyc30lfpvr72"]
+
+[ext_resource type="Script" uid="uid://dshy86ji8lew7" path="res://scenes/town/town.gd" id="1_jyrud"]
+[ext_resource type="Texture2D" uid="uid://b3k4gsh6yd2ts" path="res://assets/sprites/kereta.png" id="2_jyrud"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jyrud"]
+radius = 68.00734
+height = 190.03732
+
+[sub_resource type="Animation" id="Animation_jyrud"]
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8.340755, 9.760312)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gxugk"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4.766147, -5.57732)]
+}
+
+[sub_resource type="Animation" id="Animation_tivg0"]
+resource_name = "move"
+length = 1.1
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-14.894201, -17.429129), Vector2(10.655746, 12.469288)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 0, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rm36m"]
+_data = {
+&"RESET": SubResource("Animation_jyrud"),
+&"idle": SubResource("Animation_gxugk"),
+&"move": SubResource("Animation_tivg0")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gxugk"]
+radius = 100.0
+height = 250.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxugk"]
+radius = 199.7223
+
+[node name="Town" type="CharacterBody2D" unique_id=1032180166 groups=["town"]]
+z_index = 2
+y_sort_enabled = true
+rotation = 0.7993608
+collision_layer = 640
+collision_mask = 129
+script = ExtResource("1_jyrud")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1427554744]
+position = Vector2(8.340755, 9.760312)
+rotation = -0.8150688
+scale = Vector2(2.252481, 1.8718609)
+texture = ExtResource("2_jyrud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1063467570]
+position = Vector2(12.207222, 13.265882)
+rotation = 0.7853982
+shape = SubResource("CapsuleShape2D_jyrud")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1632895177]
+libraries/ = SubResource("AnimationLibrary_rm36m")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1786840939]
+position = Vector2(43.01465, 41.829895)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1788762173]
+position = Vector2(-21.507332, -20.914944)
+rotation = 0.80285144
+shape = SubResource("CapsuleShape2D_gxugk")
+
+[node name="ThunderRange" type="Area2D" parent="." unique_id=158972951]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThunderRange" unique_id=1336184504]
+position = Vector2(16.488943, 16.034798)
+shape = SubResource("CircleShape2D_gxugk")
+
+[node name="ThunderPoint" type="Marker2D" parent="." unique_id=1233804614]
+position = Vector2(36.73862, -103.76065)

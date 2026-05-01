@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://dav328i35g807"]
+
+[ext_resource type="Script" uid="uid://bnpke4kbp0hqs" path="res://global/settings.gd" id="1_kx72a"]
+[ext_resource type="FontFile" uid="uid://colx7pykpqqal" path="res://assets/fonts/BreatheFireV-R9EvE.ttf" id="2_3rjag"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.08, 0.06, 0.12, 0.92)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.85, 0.65, 0.2, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider_fill"]
+bg_color = Color(0.85, 0.65, 0.2, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider_bg"]
+bg_color = Color(0.2, 0.18, 0.25, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.85, 0.65, 0.2, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_press"]
+bg_color = Color(0.6, 0.45, 0.1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(1, 0.8, 0.3, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Settings" type="Control" unique_id=1692803145]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kx72a")
+
+[node name="Background" type="ColorRect" parent="." unique_id=2030589689]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.04, 0.08, 0.85)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1125946902]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=780910023]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=277964937]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=1506478201]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=646263245]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.65, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_3rjag")
+theme_override_font_sizes/font_size = 48
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1547133562]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_slider_fill")
+
+[node name="MasterSection" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=594552203]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="MasterLabel" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MasterSection" unique_id=323560699]
+layout_mode = 2
+
+[node name="Icon" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MasterSection/MasterLabel" unique_id=541274056]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.65, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_3rjag")
+theme_override_font_sizes/font_size = 28
+text = "Master"
+
+[node name="Spacer" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MasterSection/MasterLabel" unique_id=1679537603]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MasterValue" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MasterSection/MasterLabel" unique_id=1278266532]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.85, 0.85, 1)
+theme_override_fonts/font = ExtResource("2_3rjag")
+theme_override_font_sizes/font_size = 24
+text = "100%"
+horizontal_alignment = 2
+
+[node name="MasterSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MasterSection" unique_id=940222991]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxFlat_slider_fill")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_slider_bg")
+value = 100.0
+
+[node name="MasterMute" type="CheckBox" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MasterSection" unique_id=643259375]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_fonts/font = ExtResource("2_3rjag")
+theme_override_font_sizes/font_size = 20
+text = "Mute"
+
+[node name="Spacer" type="Control" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=668791068]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=719134004]
+custom_minimum_size = Vector2(200, 55)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.08, 0.05, 1)
+theme_override_fonts/font = ExtResource("2_3rjag")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_press")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "BACK"
+
+[connection signal="value_changed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MasterSection/MasterSlider" to="." method="_on_master_changed"]
+[connection signal="toggled" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/MasterSection/MasterMute" to="." method="_on_master_mute_toggled"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_pressed"]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://rniiclxbs8kc"]
+
+[ext_resource type="Script" uid="uid://6rg26h0g3mg8" path="res://scripts/item_data.gd" id="1_o2sxd"]
+[ext_resource type="Texture2D" uid="uid://co4in4r1hkl3m" path="res://assets/sprites/dash.png" id="2_ala1c"]
+
+[resource]
+script = ExtResource("1_o2sxd")
+name = "Dash"
+description = "Meningkatkan jarak dash"
+texture = ExtResource("2_ala1c")
+cost = 5
+metadata/_custom_type_script = "uid://6rg26h0g3mg8"

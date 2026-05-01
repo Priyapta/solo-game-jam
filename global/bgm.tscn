@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bgu6k0av5i5mb"]
+
+[ext_resource type="AudioStream" uid="uid://bejqd8pxkv3sd" path="res://assets/audio/sound_jalan.mp3" id="1_ikygq"]
+[ext_resource type="Script" uid="uid://b2fxt8w0iuq41" path="res://global/bgm.gd" id="2_script"]
+[ext_resource type="AudioStream" uid="uid://cdli0mi6d8b0x" path="res://assets/audio/battle_bos.mp3" id="3_d0omq"]
+
+[node name="bgm" type="AudioStreamPlayer" unique_id=2003021227]
+stream = ExtResource("1_ikygq")
+volume_db = -16.677
+autoplay = true
+script = ExtResource("2_script")
+
+[node name="SoundJalan" type="AudioStreamPlayer" parent="." unique_id=1593457151]
+stream = ExtResource("1_ikygq")
+volume_db = -4.149
+
+[node name="SoundBoss" type="AudioStreamPlayer" parent="." unique_id=1087543959]
+stream = ExtResource("3_d0omq")
+volume_db = -4.149
+
+[connection signal="finished" from="." to="." method="_on_finished"]
+[connection signal="finished" from="SoundJalan" to="." method="_on_sound_jalan_finished"]
+[connection signal="finished" from="SoundBoss" to="." method="_on_sound_boss_finished"]
+[connection signal="finished" from="SoundBoss" to="." method="_on_sound_jalan_finished"]

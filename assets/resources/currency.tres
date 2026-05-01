@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://eiwi5hk8cl8i"]
+
+[ext_resource type="Script" uid="uid://6rg26h0g3mg8" path="res://scripts/item_data.gd" id="1_3pinb"]
+[ext_resource type="Texture2D" uid="uid://y1apswne7m05" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Icons/Icon_03.png" id="2_asmkm"]
+
+[resource]
+script = ExtResource("1_3pinb")
+name = "Coin"
+description = "Coin"
+texture = ExtResource("2_asmkm")
+metadata/_custom_type_script = "uid://6rg26h0g3mg8"

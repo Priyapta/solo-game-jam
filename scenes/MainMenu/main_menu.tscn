@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://dergl4ww54c0o"]
+
+[ext_resource type="Script" uid="uid://83ook587qwn4" path="res://scenes/MainMenu/main_menu.gd" id="1_tpeu6"]
+[ext_resource type="Texture2D" uid="uid://cyeonukxayo1x" path="res://assets/ui/main_Menu/Button_Blue_3Slides.png" id="2_7vhwp"]
+[ext_resource type="Texture2D" uid="uid://7qr5a2c32qnj" path="res://assets/ui/main_Menu/Button_Blue_3Slides_Pressed.png" id="3_kfapv"]
+[ext_resource type="FontFile" uid="uid://colx7pykpqqal" path="res://assets/fonts/BreatheFireV-R9EvE.ttf" id="4_kfapv"]
+
+[node name="Main Menu" type="Control" unique_id=1225232175]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tpeu6")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1928213563]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.03, 0.07, 1)
+
+[node name="Vignette" type="ColorRect" parent="." unique_id=1981024869]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4)
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1016187866]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -574.5
+offset_top = 100.0
+offset_right = 574.5
+offset_bottom = 210.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.78, 0.3, 1)
+theme_override_colors/font_shadow_color = Color(0.6, 0.3, 0, 0.9)
+theme_override_colors/font_outline_color = Color(0.3, 0.1, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("4_kfapv")
+theme_override_font_sizes/font_size = 100
+text = "Kingdom Warden"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="." unique_id=746136111]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 220.0
+offset_right = 200.0
+offset_bottom = 260.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.85, 0.65, 0.2, 0.6)
+theme_override_fonts/font = ExtResource("4_kfapv")
+theme_override_font_sizes/font_size = 28
+text = "Defend Your Kingdom"
+horizontal_alignment = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=1420979973]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = 30.0
+offset_right = 225.0
+offset_bottom = 530.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="NewGame" type="TextureButton" parent="ButtonContainer" unique_id=814824104]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+texture_normal = ExtResource("2_7vhwp")
+texture_pressed = ExtResource("3_kfapv")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ButtonContainer/NewGame" unique_id=1356302856]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.063
+anchor_top = 0.086
+anchor_right = 0.924
+anchor_bottom = 0.573
+offset_left = 76.65
+offset_top = 26.099998
+offset_right = -59.80002
+offset_bottom = 1.0499954
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.80784315)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("4_kfapv")
+theme_override_font_sizes/font_size = 40
+text = "New Game"
+horizontal_alignment = 1
+
+[node name="Settings" type="TextureButton" parent="ButtonContainer" unique_id=2078616009]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+texture_normal = ExtResource("2_7vhwp")
+texture_pressed = ExtResource("3_kfapv")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ButtonContainer/Settings" unique_id=529874088]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.087000005
+anchor_top = 0.171
+anchor_right = 0.89100003
+anchor_bottom = 0.632
+offset_left = 96.85
+offset_top = 11.349998
+offset_right = -74.95001
+offset_bottom = -14.800003
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.80784315)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("4_kfapv")
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Exit" type="TextureButton" parent="ButtonContainer" unique_id=679965621]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+texture_normal = ExtResource("2_7vhwp")
+texture_pressed = ExtResource("3_kfapv")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ButtonContainer/Exit" unique_id=939817707]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -36.0
+offset_right = 57.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.80784315)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("4_kfapv")
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="ButtonContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="ButtonContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="ButtonContainer/Exit" to="." method="_on_exit_pressed"]

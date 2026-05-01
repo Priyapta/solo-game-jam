@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://cqquugq5l8j2y"]
+
+[ext_resource type="Texture2D" uid="uid://bli3xvta6q2x0" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Icons/Icon_05.png" id="1_cm4iv"]
+[ext_resource type="Script" uid="uid://6rg26h0g3mg8" path="res://scripts/item_data.gd" id="1_ifen4"]
+
+[resource]
+script = ExtResource("1_ifen4")
+name = "Attack Damage"
+description = "Meningkatkan Basic Attack"
+texture = ExtResource("1_cm4iv")
+cost = 5
+metadata/_custom_type_script = "uid://6rg26h0g3mg8"

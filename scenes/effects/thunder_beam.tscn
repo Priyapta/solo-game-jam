@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dtplso8vjs4yi"]
+
+[ext_resource type="Texture2D" uid="uid://cu4a3j7o3ey7f" path="res://assets/sprites/projectile-lightning.png" id="1_yvva0"]
+[ext_resource type="Script" uid="uid://dotiifvh2tb8k" path="res://scenes/effects/ThunderBeam.gd" id="2_spw7g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2vrr8"]
+radius = 16.0
+
+[node name="ThunderBeam" type="Node2D" unique_id=637186975]
+script = ExtResource("2_spw7g")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1771209899]
+texture = ExtResource("1_yvva0")
+texture_mode = 2
+
+[node name="HitboxThunder" type="Area2D" parent="." unique_id=1208817509]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxThunder" unique_id=417848067]
+shape = SubResource("CircleShape2D_2vrr8")
+
+[node name="LifeTime" type="Timer" parent="." unique_id=51748162]
+wait_time = 0.2
+
+[connection signal="body_entered" from="HitboxThunder" to="." method="_on_hitbox_thunder_body_entered"]

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bfvjpydvq2ujx"]
+
+[ext_resource type="Script" uid="uid://dvoupj37u6t3b" path="res://scenes/sellcard/shop_item_button.gd" id="1_7u2n7"]
+[ext_resource type="Texture2D" uid="uid://bli3xvta6q2x0" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Icons/Icon_05.png" id="1_grl6l"]
+[ext_resource type="FontFile" uid="uid://5itutc08o8pc" path="res://assets/fonts/yoster.ttf" id="2_7u2n7"]
+
+[node name="ShopItemButton" type="Button" unique_id=1011331768]
+custom_minimum_size = Vector2(800, 97)
+offset_left = -1.0
+offset_right = 219.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 50
+script = ExtResource("1_7u2n7")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1847734120]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 23.0
+offset_right = 64.0
+offset_bottom = 70.0
+texture = ExtResource("1_grl6l")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=1456485956]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 28.0
+offset_right = 707.0
+offset_bottom = 69.0
+theme_override_fonts/font = ExtResource("2_7u2n7")
+theme_override_font_sizes/font_size = 40
+text = "Label for the item so we can see what it is"
+clip_text = true
+text_overrun_behavior = 6
+
+[node name="PriceLabel" type="Label" parent="." unique_id=1835004007]
+layout_mode = 0
+offset_left = 690.0
+offset_top = 27.0
+offset_right = 770.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("2_7u2n7")
+theme_override_font_sizes/font_size = 40
+text = "999"

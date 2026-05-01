@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dl2od11wdu32l"]
+
+[ext_resource type="Script" uid="uid://dloep7jqaf0ea" path="res://scenes/shop/interact_zone.gd" id="1_qaxay"]
+[ext_resource type="Texture2D" uid="uid://bbp5p6tppa3sq" path="res://assets/Tiny Swords (Free Pack)/Buildings/Blue Buildings/House3.png" id="2_7lxhl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kdb55"]
+radius = 139.60658
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iglei"]
+size = Vector2(93, 33)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qaxay"]
+font_size = 24
+font_color = Color(1, 0.9, 0.2, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.5)
+
+[node name="shop" type="StaticBody2D" unique_id=1452409967]
+script = ExtResource("1_qaxay")
+
+[node name="interactzone" type="Area2D" parent="." unique_id=553922175]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactzone" unique_id=223538441]
+position = Vector2(-1, -19)
+shape = SubResource("CircleShape2D_kdb55")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=697278318]
+position = Vector2(0, -70)
+texture = ExtResource("2_7lxhl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=620050574]
+position = Vector2(-0.5, -15.5)
+shape = SubResource("RectangleShape2D_iglei")
+
+[node name="InteractPrompt" type="Label" parent="." unique_id=987654321]
+visible = false
+z_index = 10
+offset_left = -80.0
+offset_top = -160.0
+offset_right = 80.0
+offset_bottom = -130.0
+text = "[E] Buka Shop"
+label_settings = SubResource("LabelSettings_qaxay")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="interactzone" to="." method="_on_interactzone_body_entered"]
+[connection signal="body_exited" from="interactzone" to="." method="_on_interactzone_body_exited"]

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cyyom2v0ruewl"]
+
+[ext_resource type="Script" uid="uid://d4g5k71c6d208" path="res://scenes/projectile/arrow.gd" id="1_16qm4"]
+[ext_resource type="Texture2D" uid="uid://bsyjcghahi83u" path="res://assets/sprites/Yellow Units/Archer/Arrow.png" id="2_jre8l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xe4qn"]
+
+[node name="bullet" type="Area2D" unique_id=1978721778]
+z_index = 1
+collision_layer = 0
+collision_mask = 18
+script = ExtResource("1_16qm4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1109172137]
+shape = SubResource("RectangleShape2D_xe4qn")
+
+[node name="icon" type="Sprite2D" parent="." unique_id=4144942]
+z_index = 1
+texture = ExtResource("2_jre8l")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

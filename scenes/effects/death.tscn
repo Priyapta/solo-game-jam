@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cwld8v20n774y"]
+
+[ext_resource type="Script" uid="uid://unficyt50ssq" path="res://scenes/effects/death.gd" id="1_w7y6c"]
+[ext_resource type="Texture2D" uid="uid://bucypvtngdjkd" path="res://assets/Dead.png" id="2_1xwd8"]
+
+[sub_resource type="Animation" id="Animation_1o1cm"]
+length = 1.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_htkk4"]
+resource_name = "death"
+length = 1.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 13, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_qwbrp"]
+resource_name = "resource"
+length = 0.6
+loop_mode = 1
+step = 0.1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3y540"]
+_data = {
+&"RESET": SubResource("Animation_1o1cm"),
+&"death": SubResource("Animation_htkk4"),
+&"resource": SubResource("Animation_qwbrp")
+}
+
+[node name="Death" type="Node2D" unique_id=1989726420]
+script = ExtResource("1_w7y6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=96084955]
+texture = ExtResource("2_1xwd8")
+hframes = 7
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1872548040]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_3y540")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cmv4lo4gsivuo"]
+
+[ext_resource type="AudioStream" uid="uid://cdli0mi6d8b0x" path="res://assets/audio/battle_bos.mp3" id="1_6sixh"]
+
+[node name="bossLevelSound" type="AudioStreamPlayer2D" unique_id=1066020156]
+stream = ExtResource("1_6sixh")

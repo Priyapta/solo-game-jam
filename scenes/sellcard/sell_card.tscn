@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://burth4t7bu4yr"]
+
+[ext_resource type="Script" uid="uid://cf00nkuu52foh" path="res://scenes/sellcard/sell_card.gd" id="1_ugbf1"]
+[ext_resource type="Texture2D" uid="uid://csrya16ia6k1i" path="res://assets/Tiny Swords (Free Pack)/Terrain/Resources/Tools/Tool_03.png" id="2_jjtym"]
+[ext_resource type="Texture2D" uid="uid://y1apswne7m05" path="res://assets/Tiny Swords (Free Pack)/UI Elements/UI Elements/Icons/Icon_03.png" id="3_fxckr"]
+
+[node name="SellCard" type="Control" unique_id=1546791758 node_paths=PackedStringArray("card_frame")]
+custom_minimum_size = Vector2(96, 112)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ugbf1")
+card_frame = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=47483132]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_jjtym")
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=1921261623]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 47.0
+offset_right = 53.0
+offset_bottom = 96.0
+text = "100
+"
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/Label" unique_id=1180847245]
+layout_mode = 0
+offset_left = -17.0
+offset_top = 5.0
+offset_right = -1.0
+offset_bottom = 21.0
+texture = ExtResource("3_fxckr")
+expand_mode = 1

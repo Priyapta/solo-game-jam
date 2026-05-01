@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://cxgwcw04uunnr"]
+
+[ext_resource type="FontFile" uid="uid://colx7pykpqqal" path="res://assets/fonts/BreatheFireV-R9EvE.ttf" id="1_mow0j"]
+[ext_resource type="Script" uid="uid://m1um6xrtev0" path="res://scenes/game_over/end_game.gd" id="1_okxbk"]
+[ext_resource type="Texture2D" uid="uid://cyeonukxayo1x" path="res://assets/ui/main_Menu/Button_Blue_3Slides.png" id="2_okxbk"]
+[ext_resource type="Texture2D" uid="uid://7qr5a2c32qnj" path="res://assets/ui/main_Menu/Button_Blue_3Slides_Pressed.png" id="3_8s121"]
+
+[node name="EndGame" type="Control" unique_id=1876108015]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_okxbk")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=580695893]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.43137255)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=1117156514]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 150
+
+[node name="Label2" type="Label" parent="ColorRect/VBoxContainer" unique_id=877598650]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.7185027, 0, 0.21923089, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.80784315)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("1_mow0j")
+theme_override_font_sizes/font_size = 155
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="ColorRect/VBoxContainer" unique_id=869592317]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_mow0j")
+theme_override_font_sizes/font_size = 32
+text = "Your Town Has Been Destroyed!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer" unique_id=747139890]
+layout_mode = 2
+
+[node name="NewGame" type="TextureButton" parent="ColorRect/VBoxContainer/HBoxContainer" unique_id=224179250]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+texture_normal = ExtResource("2_okxbk")
+texture_pressed = ExtResource("3_8s121")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/NewGame" unique_id=2049351282]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.063
+anchor_top = 0.086
+anchor_right = 0.924
+anchor_bottom = 0.573
+offset_left = 76.65
+offset_top = 26.099998
+offset_right = -59.80002
+offset_bottom = 1.0499954
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.80784315)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("1_mow0j")
+theme_override_font_sizes/font_size = 40
+text = "Restart"
+horizontal_alignment = 1
+
+[node name="NewGame2" type="TextureButton" parent="ColorRect/VBoxContainer/HBoxContainer" unique_id=1717326530]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+texture_normal = ExtResource("2_okxbk")
+texture_pressed = ExtResource("3_8s121")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/HBoxContainer/NewGame2" unique_id=1712634837]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.063
+anchor_top = 0.086
+anchor_right = 0.924
+anchor_bottom = 0.573
+offset_left = 76.65
+offset_top = 26.099998
+offset_right = -59.80002
+offset_bottom = 1.0499954
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.80784315)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("1_mow0j")
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+horizontal_alignment = 1

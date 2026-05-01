@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://b4cynf2cx6mdo"]
+
+[ext_resource type="Script" uid="uid://copoet7qh4ba7" path="res://scenes/effects/gold.gd" id="1_64dyb"]
+[ext_resource type="Texture2D" uid="uid://co71xvxh6t0rx" path="res://assets/Tiny Swords (Free Pack)/Terrain/Resources/Gold/Gold Resource/Gold_Resource_Highlight.png" id="2_3yw32"]
+
+[sub_resource type="Animation" id="Animation_k7n0j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -18.999998)]
+}
+
+[sub_resource type="Animation" id="Animation_g3sn6"]
+resource_name = "gold"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -18), Vector2(0, -10), Vector2(0, -7), Vector2(0, -4), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t7jqj"]
+_data = {
+&"RESET": SubResource("Animation_k7n0j"),
+&"gold": SubResource("Animation_g3sn6")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sevc1"]
+radius = 81.49847
+
+[node name="gold" type="Node2D" unique_id=1294859890]
+script = ExtResource("1_64dyb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2001695501]
+position = Vector2(0, -18.999998)
+scale = Vector2(1.3007813, 1.171875)
+texture = ExtResource("2_3yw32")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1375252753]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_t7jqj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=874193589]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=948162449]
+shape = SubResource("CircleShape2D_sevc1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

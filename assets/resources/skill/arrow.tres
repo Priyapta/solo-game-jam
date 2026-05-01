@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UpgradeData" format=3 uid="uid://c0hl6savrcgnk"]
+
+[ext_resource type="Script" uid="uid://6rg26h0g3mg8" path="res://scripts/item_data.gd" id="1_nh51q"]
+[ext_resource type="Texture2D" uid="uid://it5kl5nj8eqf" path="res://assets/sprites/Arrow.png" id="2_er6ji"]
+
+[resource]
+script = ExtResource("1_nh51q")
+name = "Arrow"
+description = "Menambah Arrow"
+texture = ExtResource("2_er6ji")
+cost = 20
+metadata/_custom_type_script = "uid://6rg26h0g3mg8"
