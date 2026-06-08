@@ -1,6 +1,10 @@
 extends Node2D
 
 @export var enemy_scene: PackedScene
+@export var town_enemy_scene: PackedScene
+@export var enemy_test_scene: PackedScene
+@export_range(0.0, 1.0, 0.05) var town_enemy_spawn_chance: float = 0.3
+@export_range(0.0, 1.0, 0.05) var enemy_test_spawn_chance: float = 0.15
 
 
 signal day_started(number: int, is_horde: bool)
@@ -86,7 +90,16 @@ func spawn_enemy():
 		return
 		
 	var random_marker = spawn_points.pick_random()
-	var enemy_instance = enemy_scene.instantiate()
+	var scene_to_spawn = enemy_scene
+	var town_roll = town_enemy_spawn_chance
+	var test_roll = town_enemy_spawn_chance + enemy_test_spawn_chance
+	var variant_roll = randf()
+	if town_enemy_scene != null and variant_roll < town_roll:
+		scene_to_spawn = town_enemy_scene
+	elif enemy_test_scene != null and variant_roll < test_roll:
+		scene_to_spawn = enemy_test_scene
+	
+	var enemy_instance = scene_to_spawn.instantiate()
 	
 	# Elite hanya spawn saat horde day dan hanya 1 per horde day
 	var is_elite = false

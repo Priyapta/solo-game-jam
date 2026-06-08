@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c4irn6jssajht" path="res://assets/decoration/Tilemap_color1.png" id="12_txhdr"]
 [ext_resource type="Script" uid="uid://b5vojix5de4v1" path="res://scenes/world/enemy_spawner.gd" id="13_5y4dy"]
 [ext_resource type="PackedScene" uid="uid://b31ivbmdisn1y" path="res://scenes/enemy/enemy.tscn" id="14_u5g5g"]
+[ext_resource type="PackedScene" uid="uid://dxb71g1hk0r2j" path="res://scenes/enemy/enemy_test.tscn" id="14_test_enemy"]
 [ext_resource type="PackedScene" uid="uid://pyc30lfpvr72" path="res://scenes/town/town.tscn" id="15_ti8ec"]
 [ext_resource type="PackedScene" uid="uid://ctecsujedpqwt" path="res://scenes/player/player.tscn" id="16_n55rr"]
 [ext_resource type="PackedScene" uid="uid://dkxpiw14u2gmw" path="res://scenes/door/door.tscn" id="17_njwj8"]
@@ -493,6 +494,10 @@ z_index = 1
 y_sort_enabled = true
 script = ExtResource("13_5y4dy")
 enemy_scene = ExtResource("14_u5g5g")
+town_enemy_scene = ExtResource("14_test_enemy")
+enemy_test_scene = ExtResource("14_test_enemy")
+town_enemy_spawn_chance = 0.3
+enemy_test_spawn_chance = 0.15
 
 [node name="spawn1" type="Marker2D" parent="EnemySpawner" unique_id=1532685117]
 position = Vector2(1482, 2462)

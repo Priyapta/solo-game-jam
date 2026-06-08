@@ -14,6 +14,12 @@ enum TargetType {
 	PLAYER,
 	TOWN
 }
+
+enum TargetPriority {
+	NEAREST,
+	PLAYER,
+	TOWN
+}
 @export_category("Stats")
 @export var speed: int = 120 
 @export var attack_speed: float = 1.0 
@@ -23,6 +29,10 @@ enum TargetType {
 @export var hitpoints: int = 100
 @export var separation_radius: float = 52.0
 @export var separation_force: float = 220.0
+@export var target_priority: TargetPriority = TargetPriority.PLAYER
+@export var prioritize_town_on_tie: bool = false
+@export var variant_label_text: String = ""
+@export var variant_label_color: Color = Color(1.0, 0.55, 0.2, 1.0)
 @export_category("Related Scenes")
 @export var death_packed: PackedScene
 @export var knockback_force: float = 400
@@ -60,6 +70,9 @@ func _ready() -> void:
 	animation_tree.active = true
 	hit_box_collision.set_deferred("disabled", true)
 	
+	if variant_label_text != "":
+		_add_variant_label(variant_label_text, variant_label_color, Vector2(-70, -110))
+	
 	if not $AnimationPlayer.animation_finished.is_connected(_on_animation_player_animation_finished):
 		$AnimationPlayer.animation_finished.connect(_on_animation_player_animation_finished)
 	
@@ -85,8 +98,11 @@ func _ready() -> void:
 	# Set titik spawn
 	spawn_point = global_position
 	
-	# Set target awal ke town 
-	if town != null:
+	# Set target awal sesuai prioritas variant.
+	if target_priority == TargetPriority.PLAYER and player != null and player.state != State.DEAD:
+		current_target = TargetType.PLAYER
+		current_target_position = player.global_position
+	elif town != null:
 		current_target = TargetType.TOWN
 		current_target_position = town.global_position
 
@@ -182,16 +198,32 @@ func _update_target_selection() -> void:
 	var dist_to_town: float = INF
 	
 	if player != null and player.state != 3:  # 3 = DEAD state
-		dist_to_player = global_position.distance_to(player.global_position)
+		dist_to_player = _get_edge_distance_to(player)
 	
 	# Hitung jarak ke town
 	if town != null:
-		dist_to_town = global_position.distance_to(town.global_position)
+		dist_to_town = _get_edge_distance_to(town)
 	
 	# Pilih target berdasarkan jarak terdekat
 	var new_target: TargetType = TargetType.NONE
+
+	if target_priority == TargetPriority.TOWN:
+		if dist_to_town <= aggro_range * 1.5:
+			new_target = TargetType.TOWN
+		elif dist_to_player <= aggro_range:
+			new_target = TargetType.PLAYER
+	elif target_priority == TargetPriority.PLAYER:
+		if dist_to_player <= aggro_range:
+			new_target = TargetType.PLAYER
+		elif dist_to_town <= aggro_range * 1.5:
+			new_target = TargetType.TOWN
 	
-	if dist_to_player <= dist_to_town:
+	elif prioritize_town_on_tie and is_equal_approx(dist_to_player, dist_to_town):
+		if dist_to_town <= aggro_range * 1.5:
+			new_target = TargetType.TOWN
+		elif dist_to_player <= aggro_range:
+			new_target = TargetType.PLAYER
+	elif dist_to_player < dist_to_town:
 
 		if dist_to_player <= aggro_range:
 			new_target = TargetType.PLAYER
@@ -438,15 +470,40 @@ func setup_stats(scaling_factor: float, is_elite: bool = false) -> void:
 		_add_elite_label()
 
 func _add_elite_label() -> void:
-	# Buat Label3D atau Label untuk menandai elite
+	_add_variant_label(" ELITE ", Color(1, 0.2, 0.2, 1), Vector2(-50, -80))
+
+func _add_variant_label(text: String, color: Color, pos: Vector2) -> void:
 	var label = Label.new()
-	label.text = " ELITE "
+	label.text = text
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	label.add_theme_color_override("font_color", Color(1, 0.2, 0.2, 1))
+	label.add_theme_color_override("font_color", color)
 	label.add_theme_font_size_override("font_size", 24)
-	label.position = Vector2(-50, -80)  # Di atas kepala enemy
+	label.position = pos
 	add_child(label)
+
+func _get_edge_distance_to(target: Node2D) -> float:
+	var center_distance = global_position.distance_to(target.global_position)
+	return max(center_distance - _get_body_radius(self) - _get_body_radius(target), 0.0)
+
+func _get_body_radius(target: Node) -> float:
+	if target == null:
+		return 0.0
+	
+	var collision := target.get_node_or_null("CollisionShape2D") as CollisionShape2D
+	if collision == null or collision.shape == null:
+		return 0.0
+	
+	var global_scale := collision.global_scale.abs()
+	if collision.shape is CircleShape2D:
+		return collision.shape.radius * max(global_scale.x, global_scale.y)
+	if collision.shape is CapsuleShape2D:
+		return (collision.shape.radius + collision.shape.height * 0.5) * max(global_scale.x, global_scale.y)
+	if collision.shape is RectangleShape2D:
+		var extents = collision.shape.size * 0.5
+		return max(extents.x * global_scale.x, extents.y * global_scale.y)
+	
+	return 0.0
 
 func _play_hit_flash() -> void:
 

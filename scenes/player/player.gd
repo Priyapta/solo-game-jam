@@ -19,6 +19,7 @@ var dash_cooldown: float = 0.8
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var step_particles: CPUParticles2D = $StepParticles
 @onready var body_collision: CollisionShape2D = $CollisionShape2D
 @onready var hit_box_collision: CollisionShape2D = $HitBox/CollisionShape2D
 @onready var hurt_box_collision: CollisionShape2D = $HurtBox/CollisionShape2D
@@ -173,6 +174,15 @@ func _update_walk_sound() -> void:
 	walk_sound.play()
 	walk_sound_cooldown = 0.35
 
+func _update_step_particles() -> void:
+	if step_particles == null:
+		return
+	var is_running = state == State.RUN and input_direction != Vector2.ZERO and velocity.length() > 10.0 and not is_dashing
+	step_particles.emitting = is_running
+	if not is_running:
+		return
+	step_particles.position.x = 6.0 if sprite.flip_h else -6.0
+
 func heal(amount: int) -> void:
 	currentHealth += amount
 	currentHealth = min(currentHealth, maxHealth)
@@ -231,6 +241,7 @@ func _physics_process(delta: float) -> void:
 	velocity += knockback_velocity
 	move_and_slide()
 	_update_walk_sound()
+	_update_step_particles()
 
 
 func movement_loop() -> void:
